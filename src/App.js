@@ -1,25 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import BookList from './components/Booklist';
 
-function App() {
+ function App() {
+  const books = [
+    {
+      id: 1,
+      author: "James Clear",
+      title: "Atomic Habits",
+      image: "https://m.media-amazon.com/images/I/71F4+7rk2eL._AC_UY436_FMwebp_QL65_.jpg",
+      inStock: 22
+    },
+    {
+      id: 2,
+      author: "Alex Michealidas",
+      title: "Atomic Habits",
+      image: "https://m.media-amazon.com/images/I/81LFAmKY4FL._AC_UY436_FMwebp_QL65_.jpg",
+      inStock: 5
+    },
+    {
+      id: 3,
+      author: "Colleen Hoover",
+      title: "Regretting You",
+      image: "https://m.media-amazon.com/images/I/713cjPM+EJL._AC_UY436_FMwebp_QL65_.jpg",
+      inStock: 10
+    },
+  ]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     {books.map((book, index) => {
+       return (
+         <BookList 
+         title={book.title} 
+         author={book.author} 
+         image={book.image} 
+         inStock={book.inStock} />
+       )
+     })}
     </div>
   );
 }
-
 export default App;
